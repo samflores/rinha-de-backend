@@ -1,0 +1,27 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        org.clojure/data.json {:mvn/version "2.4.0"}
+        ch.qos.logback/logback-classic {:mvn/version "1.2.10" :exclusions [org.slf4j/slf4j-api]}
+        org.slf4j/jul-to-slf4j {:mvn/version "1.7.35"}
+        org.slf4j/jcl-over-slf4j {:mvn/version "1.7.35"}
+        org.slf4j/log4j-over-slf4j {:mvn/version "1.7.35"}
+        integrant/integrant {:mvn/version "0.8.1"}
+        io.pedestal/pedestal.service {:mvn/version "0.6.0"}
+        io.pedestal/pedestal.route {:mvn/version "0.6.0"}
+        io.pedestal/pedestal.jetty {:mvn/version "0.6.0"}
+        org.postgresql/postgresql {:mvn/version "42.3.5"}
+        com.layerware/hugsql {:mvn/version "0.5.3"}
+        clojure.jdbc/clojure.jdbc-c3p0 {:mvn/version "0.3.4"}}
+ :aliases
+ {:run-m {:main-opts ["-m" "samflores.rinha-de-backend"]}
+  :run-x {:ns-default samflores.rinha-de-backend
+          :exec-fn -main
+          :exec-args {:name "Clojure"}}
+  :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.5"}}
+          :ns-default build}
+  :test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "1.1.1"}
+                      io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}}}}
+
+

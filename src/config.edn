@@ -1,0 +1,10 @@
+{:adapter/http {:port 8080
+                :routes #ig/ref :handler/routes
+                :db #ig/ref :database/pool}
+ :database/pool {:subprotocol "postgresql"
+                 :user "postgres"
+                 :password "sekret"
+                 :subname "//localhost:5432/rinha_dev"}
+ :handler/routes {:routes #{["/pessoas" :get :find-people :route-name :find-people]
+                            ["/pessoas" :post :create-person :route-name :create-person]
+                            ["/pessoas/:person-id" :get :show-person :route-name :show-person]}}}
